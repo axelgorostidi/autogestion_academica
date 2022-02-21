@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.tpf_gorostidi">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.TPF_Gorostidi">
+        <activity android:name=".activity.datos_activity"></activity>
+        <activity android:name=".activity.Aulas_activity" />
+        <activity android:name=".activity.Evento_activity" />
+        <activity android:name=".activity.WebService_activity" />
+        <activity android:name=".activity.notificaciones_activity" />
+        <activity android:name=".activity.archivo_nuevo_activity" />
+        <activity android:name=".activity.archivos_activity" />
+        <activity android:name=".activity.registrarse_activity" />
+        <activity android:name=".activity.comentario_nuevo_activity" />
+        <activity android:name=".activity.comentarios_activity" />
+        <activity android:name=".activity.Curso_activity" />
+        <activity android:name=".activity.TodosCursos_activity" />
+        <activity android:name=".activity.MisCursos_activity" />
+        <activity android:name=".activity.inicio_activity" />
+        <activity android:name=".activity.Authentication_activity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <service
+            android:name=".clases.MyFirebaseMessagingService"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT" />
+            </intent-filter>
+        </service>
+
+        <meta-data
+            android:name="com.facebook.sdk.ApplicationId"
+            android:value="@string/facebook_app_id" />
+
+        <activity
+            android:name="com.facebook.FacebookActivity"
+            android:configChanges="keyboard|keyboardHidden|screenLayout|screenSize|orientation"
+            android:label="@string/app_name" />
+        <activity
+            android:name="com.facebook.CustomTabActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+
+                <data android:scheme="@string/fb_login_protocol_scheme" />
+            </intent-filter>
+        </activity>
+    </application>
+
+</manifest>

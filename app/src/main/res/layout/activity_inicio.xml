@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#CED6FF"
+    tools:context=".activity.inicio_activity">
+
+    <Button
+        android:id="@+id/btnMisDatos"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="7dp"
+        android:background="@drawable/presionarboton1"
+        android:onClick="onClickMisDatos"
+        android:text="Mis Datos"
+        app:backgroundTint="@null"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/btnCerrarSesion"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/btnCerrarSesion"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="50dp"
+        android:layout_marginBottom="7dp"
+        android:background="@drawable/presionarboton2"
+        android:onClick="onClickCerrarSesion"
+        android:text="@string/cerrarsesion"
+        app:backgroundTint="@null"
+        app:layout_constraintBottom_toBottomOf="@+id/linearLayout"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginHorizontal="20dp"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/tvEmail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:gravity="center_horizontal"
+            android:paddingTop="10dp"
+            android:text="@string/MensajeInicial"
+            android:textSize="30sp"
+            android:textStyle="bold" />
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="15dp" />
+
+        <ImageView
+            android:id="@+id/unlLogo"
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
+            android:layout_marginHorizontal="15dp"
+            android:background="@drawable/rectangulo_borde"
+            android:paddingVertical="5dp"
+            app:srcCompat="@drawable/unl" />
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="30dp" />
+
+        <Button
+            android:id="@+id/btnMisCursos"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="15dp"
+            android:layout_marginVertical="5dp"
+            android:background="@drawable/presionarboton1"
+            android:onClick="onClickMisCursos"
+            android:text="@string/misCursos"
+            app:backgroundTint="@null" />
+
+        <Button
+            android:id="@+id/btnEventos"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="15dp"
+            android:layout_marginVertical="5dp"
+            android:background="@drawable/presionarboton1"
+            android:onClick="onClickEventos"
+            android:text="@string/eventos"
+            app:backgroundTint="@null" />
+
+        <Button
+            android:id="@+id/btnMapas"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="15dp"
+            android:layout_marginVertical="5dp"
+            android:background="@drawable/presionarboton1"
+            android:onClick="onClickAulas"
+            android:text="@string/Aulas"
+            app:backgroundTint="@null" />
+
+        <Button
+            android:id="@+id/btnNotificaciones"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="15dp"
+            android:layout_marginVertical="5dp"
+            android:background="@drawable/presionarboton1"
+            android:onClick="onClickNotificaciones"
+            android:text="@string/notificaciones"
+            android:textColorLink="#FFFFFF"
+            app:backgroundTint="@null" />
+
+        <Button
+            android:id="@+id/btnFacultad"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="15dp"
+            android:layout_marginVertical="5dp"
+            android:background="@drawable/presionarboton1"
+            android:onClick="onClickFacultad"
+            android:text="@string/facultad"
+            app:backgroundTint="@null" />
+
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="47dp" />
+
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

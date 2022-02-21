@@ -1,0 +1,37 @@
+<resources>
+    <string name="app_name">Autogestión FICH</string>
+    <string name="prefs_file">com.tpf_gorostidi.PREFERENCE_FILE_KEY</string>
+    <string name="bienvenido">Bienvenido</string>
+    <string name="iniciesesion">Inicie sesión para continuar</string>
+    <string name="mail">Email</string>
+    <string name="contrasena">Contraseña</string>
+    <string name="registrar">Registrarse</string>
+    <string name="ingresar">Ingresar</string>
+    <string name="cerrarsesion">Cerrar sesión</string>
+    <string name="misCursos">Mis Cursos</string>
+    <string name="eventos">Eventos</string>
+    <string name="Aulas">Aulas</string>
+    <string name="notificaciones">Historial de notificaciones</string>
+    <string name="ingreseDatos">Ingrese los datos solicitados</string>
+    <string name="contraseñasAlerta">Las contraseñas no coinciden</string>
+    <string name="problemaRegistro">No fue posible registrarse, intentelo más tarde.</string>
+    <string name="problemaBD">Se produjo un error en la base de datos, intentelo más tarde.</string>
+    <string name="MensajeInicial">Autogestión Facultativa</string>
+    <string name="MensajeMisCursos">Cursos suscriptos</string>
+    <string name="MensajeTodosCursos">Todos los cursos</string>
+    <string name="agregar">Agregar</string>
+    <string name="comentarios">Comentarios</string>
+    <string name="archivos">Archivos</string>
+    <string name="suscribir">Suscribir</string>
+    <string name="desuscribir">Desuscribir</string>
+    <string name="recargar">Recargar</string>
+    <string name="atencion">Atención</string>
+    <string name="confirmar">Confirmar</string>
+    <string name="cancelar">Cancelar</string>
+    <string name="eliminarNotificacion">¿Desea eliminar la notificación seleccionada?</string>
+    <string name="facultad">Facultad</string>
+    <string name="ubicacionesAulas">Ubicaciones de aulas/oficinas</string>
+    <string name="facebook_app_id">1433982773683121</string>
+    <string name="fb_login_protocol_scheme">fb1433982773683121</string>
+
+</resources>
