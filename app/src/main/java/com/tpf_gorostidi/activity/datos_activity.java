@@ -88,8 +88,9 @@ public class datos_activity extends AppCompatActivity {
                 .document(email)
                 .update("firstName", etNombre.getText().toString(), "lastName", etApellido.getText().toString(), "born", etFechaNac.getText().toString());
 
-        Intent i = new Intent(this, inicio_activity.class);
-        startActivity(i);
+        finish();
+//        Intent i = new Intent(this, inicio_activity.class);
+//        startActivity(i);
     }
 
     public void onClickFecha(View v){
@@ -103,4 +104,5 @@ public class datos_activity extends AppCompatActivity {
 
         newFragment.show(this.getSupportFragmentManager(), "datePicker");
     }
+
 }

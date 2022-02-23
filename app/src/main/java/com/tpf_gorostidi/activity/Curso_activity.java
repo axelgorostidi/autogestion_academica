@@ -13,6 +13,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.RatingBar;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -228,4 +229,5 @@ public class Curso_activity extends AppCompatActivity {
         intent.putExtra("cursoNombre", nombre);
         startActivity(intent);
     }
+
 }

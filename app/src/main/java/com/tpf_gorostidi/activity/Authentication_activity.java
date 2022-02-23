@@ -24,12 +24,15 @@ import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
 import com.google.android.gms.auth.api.signin.GoogleSignInClient;
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
 import com.google.android.gms.common.api.ApiException;
+import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthCredential;
+import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FacebookAuthProvider;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.GoogleAuthProvider;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
@@ -91,12 +94,26 @@ public class Authentication_activity extends AppCompatActivity {
     }
 
     public void onClickIngresar(View v){
-        if(et_mail_ingresar.getText().toString().isEmpty() || et_pass_ingresar.getText().toString().isEmpty()){
+        if(et_mail_ingresar.getText().toString().trim().isEmpty() || et_pass_ingresar.getText().toString().trim().isEmpty()){
             Toast.makeText(this, getString(R.string.ingreseDatos), Toast.LENGTH_SHORT).show();
             return;
         }
-        FirebaseAuth.getInstance().signInWithEmailAndPassword(et_mail_ingresar.getText().toString(), et_pass_ingresar.getText().toString());
-        inicioActivity(et_mail_ingresar.getText().toString(), ProviderType.valueOf("BASIC"));
+        FirebaseAuth.getInstance().signInWithEmailAndPassword(et_mail_ingresar.getText().toString().trim(), et_pass_ingresar.getText().toString().trim())
+                .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
+                    @Override
+                    public void onComplete(@NonNull Task<AuthResult> task) {
+                        if (task.isSuccessful()) {
+                            inicioActivity(et_mail_ingresar.getText().toString(), ProviderType.valueOf("BASIC"));
+                        } else {
+                            loginIncorrecto();
+                        }
+                    }
+                });
+
+    }
+
+    public void loginIncorrecto(){
+        Toast.makeText(this, getString(R.string.problemaLogin), Toast.LENGTH_SHORT).show();
     }
 
     public void onClickGoogle(View v){
@@ -194,9 +211,9 @@ public class Authentication_activity extends AppCompatActivity {
                         if(nombre == null && apellido == null && fecha == null){
 
                             Map<String, String> data = new HashMap<>();
-                            data.put("born", " ");
-                            data.put("firstName", " ");
-                            data.put("lastName", " ");
+                            data.put("born", "");
+                            data.put("firstName", "");
+                            data.put("lastName", "");
                             data.put("provider", ProviderType.GOOGLE.toString());
 
                             DocumentReference newUserRef = db.collection("Users").document(email);

@@ -11,6 +11,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -88,4 +89,5 @@ public class MisCursos_activity extends AppCompatActivity {
         Intent intent = new Intent(getApplicationContext(), TodosCursos_activity.class);
         startActivity(intent);
     }
+
 }

@@ -13,6 +13,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import com.tpf_gorostidi.R;
 import com.tpf_gorostidi.adaptadores.Notificacion_adapter;
@@ -68,7 +69,7 @@ public class notificaciones_activity extends AppCompatActivity {
         AdminSQLiteOpenHelper admin = new AdminSQLiteOpenHelper(this,"administracion", null, 1);
         SQLiteDatabase baseDeDatos = admin.getWritableDatabase();
 
-        Cursor filas = baseDeDatos.rawQuery(("select titulo, descripcion, fecha, tema from notificaciones"), null);
+        Cursor filas = baseDeDatos.rawQuery(("select titulo, descripcion, fecha, tema from notificaciones where usuario = '"+email.toString()+"'"), null);
 
         ArrayList<Notificacion> notificaciones = new ArrayList<>();
 
@@ -98,4 +99,5 @@ public class notificaciones_activity extends AppCompatActivity {
         baseDeDatos.delete("notificaciones", " descripcion = '"+descripcion+"' and titulo = '"+titulo+"' and usuario = '"+email+"' and fecha = '"+fecha+"'", null);
         llenarListaNotificaciones();
     }
+
 }

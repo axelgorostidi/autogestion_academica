@@ -12,6 +12,7 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.android.volley.Request;
 import com.android.volley.Response;
@@ -126,4 +127,7 @@ public class WebService_activity extends AppCompatActivity {
         Volley.newRequestQueue(this).add(postRequest);
     }
 
+    public void onClickRecargar(View v){
+        LeerWs();
+    }
 }

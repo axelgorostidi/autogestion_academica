@@ -32,6 +32,7 @@
             android:layout_marginHorizontal="50dp"
             android:layout_marginTop="7dp"
             android:background="@drawable/presionarboton1"
+            android:onClick="onClickRecargar"
             android:text="@string/recargar"
             app:backgroundTint="@null" />
 

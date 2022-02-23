@@ -30,12 +30,14 @@ public class comentarios_activity extends AppCompatActivity {
     private String nombreCurso;
     private String email = "";
     private String usuario = "";
+    private ListView listView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_comentarios_activity);
 
+        listView = findViewById(R.id.lvlArchivos);
         Bundle extras = getIntent().getExtras();
         nombreCurso = extras.getString("cursoNombre");
         SharedPreferences prefs = getSharedPreferences(getString(R.string.prefs_file), Context.MODE_PRIVATE);
@@ -82,8 +84,6 @@ public class comentarios_activity extends AppCompatActivity {
 
                             Comentario_adapter adapter = new Comentario_adapter(getApplication(), comentarios);
 
-                            ListView listView = findViewById(R.id.lvlArchivos);
-
                             listView.setAdapter(adapter);
                         } else {
                             errorFirebase();
@@ -102,4 +102,5 @@ public class comentarios_activity extends AppCompatActivity {
     public void errorFirebase(){
         Toast.makeText(this, getString(R.string.problemaBD), Toast.LENGTH_SHORT).show();
     }
+
 }

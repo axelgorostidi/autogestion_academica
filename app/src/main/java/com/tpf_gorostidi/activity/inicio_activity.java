@@ -9,6 +9,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.facebook.login.LoginManager;
 import com.google.firebase.auth.FirebaseAuth;
@@ -20,7 +21,6 @@ enum ProviderType{
 
 public class inicio_activity extends AppCompatActivity {
 
-    private TextView tvEmail;
     private String provider;
 
     @Override
@@ -32,12 +32,11 @@ public class inicio_activity extends AppCompatActivity {
         if(datos != null){
             String email = datos.getString("email");
             provider = datos.get("provider").toString();
-            //tvEmail.setText("Usuario: "+ email);
 
             //Guardamos los datos de inicio de sesión
             SharedPreferences prefs = getSharedPreferences(getString(R.string.prefs_file), Context.MODE_PRIVATE);
             SharedPreferences.Editor editorPrefs = prefs.edit();
-            editorPrefs.putString("email", email);
+            editorPrefs.putString("email", email.trim());
             editorPrefs.putString("provider", provider);
             editorPrefs.apply();
         }
@@ -73,18 +72,15 @@ public class inicio_activity extends AppCompatActivity {
         startActivity(intent);
     }
     public void onClickFacultad(View v){
-
-        // Create a Uri from an intent string. Use the result to create an Intent.
         Uri gmmIntentUri = Uri.parse("geo:-31.640206, -60.672399");
-        // Create an Intent from gmmIntentUri. Set the action to ACTION_VIEW
         Intent mapIntent = new Intent(Intent.ACTION_VIEW, gmmIntentUri);
-        // Make the Intent explicit by setting the Google Maps package
         mapIntent.setPackage("com.google.android.apps.maps");
-        // Attempt to start an activity that can handle the Intent
         startActivity(mapIntent);
     }
     public void onClickMisDatos(View v){
         Intent intent = new Intent(v.getContext(), datos_activity.class);
         startActivity(intent);
     }
+
+
 }

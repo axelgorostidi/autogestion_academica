@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.text.Html;
 import android.text.method.ScrollingMovementMethod;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.tpf_gorostidi.R;
 
@@ -31,4 +32,5 @@ public class Evento_activity extends AppCompatActivity {
         tvEventoDetalleFecha.setText(datos.getString("fecha"));
         tvEventoDetalleCuerpo.setText(Html.fromHtml(datos.getString("cuerpo")));
     }
+
 }

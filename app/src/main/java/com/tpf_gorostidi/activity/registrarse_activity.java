@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.app.DatePickerDialog;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.DatePicker;
 import android.widget.EditText;
@@ -26,12 +27,12 @@ import java.util.Map;
 
 public class registrarse_activity extends AppCompatActivity {
 
-    private EditText etEmail;
-    private EditText etNombre;
-    private EditText etApellido;
-    private EditText etContraseña;
-    private EditText etRepetirContraseña;
-    private EditText etFechaNac;
+    private EditText etRegEmail;
+    private EditText etRegNombre;
+    private EditText etRegApellido;
+    private EditText etRegContrasena;
+    private EditText etRegRepetirContrasena;
+    private EditText etRegFechaNac;
 
     FirebaseFirestore db = FirebaseFirestore.getInstance();
 
@@ -40,38 +41,38 @@ public class registrarse_activity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_registrarse_activity);
 
-        etNombre = findViewById(R.id.etDatosNombre);
-        etApellido = findViewById(R.id.etDatosApellido);
-        etEmail = findViewById(R.id.etRegEmail);
-        etContraseña = findViewById(R.id.etRegContrasena);
-        etRepetirContraseña = findViewById(R.id.etRegRepetirContrasena);
-        etFechaNac = findViewById(R.id.etDatosFechaNac);
+        etRegNombre = findViewById(R.id.etDatosNombre);
+        etRegApellido = findViewById(R.id.etDatosApellido);
+        etRegEmail = findViewById(R.id.etRegEmail);
+        etRegContrasena = findViewById(R.id.etRegContrasena);
+        etRegRepetirContrasena = findViewById(R.id.etRegRepetirContrasena);
+        etRegFechaNac = findViewById(R.id.etDatosFechaNac);
 
     }
 
     public void onClickRegistarse(View v){
         if(controlarCampos()){
             FirebaseAuth.getInstance()
-                    .createUserWithEmailAndPassword(etEmail.getText().toString(), etContraseña.getText().toString())
+                    .createUserWithEmailAndPassword(etRegEmail.getText().toString().trim(), etRegContrasena.getText().toString().trim())
                     .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                         @Override
                         public void onComplete(@NonNull Task<AuthResult> task) {
                             if(task.isSuccessful())
                             {
                                 Map<String, String> data = new HashMap<>();
-                                data.put("born", etFechaNac.getText().toString());
-                                data.put("firstName", etNombre.getText().toString());
-                                data.put("lastName", etApellido.getText().toString());
+                                data.put("born", etRegFechaNac.getText().toString());
+                                data.put("firstName", etRegNombre.getText().toString());
+                                data.put("lastName", etRegApellido.getText().toString());
                                 data.put("provider", ProviderType.BASIC.toString());
 
-                                DocumentReference newUserRef = db.collection("Users").document(etEmail.getText().toString());
+                                DocumentReference newUserRef = db.collection("Users").document(etRegEmail.getText().toString().trim());
                                 newUserRef
                                         .set(data)
                                         .addOnSuccessListener(new OnSuccessListener<Void>() {
                                             @Override
                                             public void onSuccess(Void aVoid) {
                                                 Intent intent = new Intent(getApplicationContext(), inicio_activity.class);
-                                                intent.putExtra("email", etEmail.getText().toString());
+                                                intent.putExtra("email", etRegEmail.getText().toString());
                                                 intent.putExtra("provider", ProviderType.BASIC.toString());
                                                 startActivity(intent);
                                                 finish();
@@ -85,6 +86,7 @@ public class registrarse_activity extends AppCompatActivity {
                                         });
 
                             }else{
+                                Log.w("ERROR", "signInWithEmail:failure", task.getException());
                                 errorRegistro();
                             }
                         }
@@ -100,9 +102,9 @@ public class registrarse_activity extends AppCompatActivity {
     }
 
     public boolean controlarCampos(){
-        if(!etNombre.getText().toString().isEmpty() && !etApellido.getText().toString().isEmpty() && !etEmail.getText().toString().isEmpty() &&
-        !etContraseña.getText().toString().isEmpty() && !etRepetirContraseña.getText().toString().isEmpty() && !etFechaNac.getText().toString().isEmpty()){
-            if(etContraseña.getText().toString().equals(etRepetirContraseña.getText().toString())){
+        if(!etRegNombre.getText().toString().isEmpty() && !etRegApellido.getText().toString().isEmpty() && !etRegEmail.getText().toString().isEmpty() &&
+        !etRegContrasena.getText().toString().isEmpty() && !etRegRepetirContrasena.getText().toString().isEmpty() && !etRegFechaNac.getText().toString().isEmpty()){
+            if(etRegContrasena.getText().toString().equals(etRegRepetirContrasena.getText().toString())){
                 return true;
             }else{
                 Toast.makeText(this, getString(R.string.contraseñasAlerta), Toast.LENGTH_SHORT).show();
@@ -120,10 +122,11 @@ public class registrarse_activity extends AppCompatActivity {
             public void onDateSet(DatePicker datePicker, int year, int month, int day) {
                 // +1 because January is zero
                 final String selectedDate = day + " / " + (month+1) + " / " + year;
-                etFechaNac.setText(selectedDate);
+                etRegFechaNac.setText(selectedDate);
             }
         });
 
         newFragment.show(this.getSupportFragmentManager(), "datePicker");
     }
+
 }

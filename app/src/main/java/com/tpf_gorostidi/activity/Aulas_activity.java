@@ -10,6 +10,7 @@ import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.ortiz.touchview.TouchImageView;
 import com.tpf_gorostidi.R;
@@ -240,4 +241,5 @@ public class Aulas_activity extends AppCompatActivity {
             }
         });
     }
+
 }
