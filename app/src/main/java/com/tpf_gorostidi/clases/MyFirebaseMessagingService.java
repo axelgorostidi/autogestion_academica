@@ -16,11 +16,7 @@ import com.google.firebase.messaging.RemoteMessage;
 import com.tpf_gorostidi.R;
 
 import java.text.SimpleDateFormat;
-import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
-import java.util.Calendar;
 import java.util.Date;
-import java.util.Map;
 
 public class MyFirebaseMessagingService extends FirebaseMessagingService {
 
@@ -29,11 +25,8 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
         super.onMessageReceived(remoteMessage);
         SharedPreferences prefs = getSharedPreferences(getString(R.string.prefs_file), Context.MODE_PRIVATE);
 
+
         RemoteMessage.Notification noti = remoteMessage.getNotification();
-        //ToastEntrante();
-
-
-
         AdminSQLiteOpenHelper admin = new AdminSQLiteOpenHelper(this,"administracion", null, 1);
         SQLiteDatabase baseDeDatos = admin.getWritableDatabase();
         ContentValues regNotificacion = new ContentValues();
@@ -45,19 +38,6 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
         String fecha = formatter.format(date);
         Log.e("Messaging: ", "EJECUTANDO");
 
-//        DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd/MM/yyyy");
-//        String fecha = dtf.format(LocalDateTime.now());
-//        Calendar calendar = Calendar.getInstance();
-//        int mYear = calendar.get(Calendar.YEAR);
-//        int mMonth = calendar.get(Calendar.MONTH);
-//        int mDay = calendar.get(Calendar.DAY_OF_MONTH);
-//        String anio = String.valueOf(mYear);
-//        String mes = String.valueOf(mMonth);
-//        if(mes.length()==1){mes = "0"+mes;}
-//        String dia = String.valueOf(mDay);
-//        if(dia.length()==1){dia = "0"+dia;}
-//        String fecha = anio+"-"+mes+"-"+dia;
-
         regNotificacion.put("usuario",usuario);
         regNotificacion.put("titulo",titulo);
         regNotificacion.put("descripcion", descripcion);
@@ -65,9 +45,23 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
         baseDeDatos.insert("notificaciones",null,regNotificacion);
 
         baseDeDatos.close();
+
+        //ToastEntrante();
     }
 
+//    public static void showToastMethod(Context context) {
+//
+//        Handler handler = new Handler(Looper.getMainLooper());
+//        handler.post(new Runnable() {
+//            @Override
+//            public void run() {
+//                Toast.makeText(context, R.string.notificacion, Toast.LENGTH_SHORT).show();
+//            }
+//        });
+//    }
+
     public void ToastEntrante(){
+
         try {
             Toast.makeText(getApplicationContext(), R.string.notificacion, Toast.LENGTH_SHORT).show();
         } catch (Exception e) {

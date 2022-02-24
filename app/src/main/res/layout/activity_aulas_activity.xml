@@ -33,7 +33,7 @@
             android:layout_height="20dp" />
 
         <Spinner
-            android:background="@drawable/rectangulo_listas"
+            android:background="@drawable/rectangulo_campo"
             app:backgroundTint="@null"
             android:popupBackground="@drawable/popup_spinner"
             android:id="@+id/spinnerUbiTipo"
@@ -45,7 +45,7 @@
             android:layout_height="10dp" />
 
         <Spinner
-            android:background="@drawable/rectangulo_listas"
+            android:background="@drawable/rectangulo_campo"
             app:backgroundTint="@null"
             android:popupBackground="@drawable/popup_spinner"
             android:id="@+id/spinnerUbiAula"

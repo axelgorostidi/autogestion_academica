@@ -40,9 +40,7 @@ public class archivo_nuevo_activity extends AppCompatActivity {
         Bundle extras = getIntent().getExtras();
         nombreCurso = extras.getString("nombreCurso");
         usuario = extras.getString("usuario");
-        String user = extras.getString("usuario");
         tvNuevoArchivoCurso.setText(nombreCurso);
-        //Bundle[{usuario=axel - axelgorostidi@gmail.com, nombreCurso=Inteligencia computacional}]
     }
 
     public void onClickAgregar(View v){
@@ -64,6 +62,7 @@ public class archivo_nuevo_activity extends AppCompatActivity {
                     .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
                         @Override
                         public void onSuccess(DocumentReference documentReference) {
+
                             finish();
                         }
                     });

@@ -47,11 +47,7 @@ public class Notificacion_adapter extends BaseAdapter {
         TextView tvNotiFecha = view.findViewById(R.id.tvNotiFecha);
         tvNotiTitulo.setText(notificacion.getTitulo());
         tvNotiCuerpo.setText(notificacion.getDescripcion());
-//        String[] arrayFecha = notificacion.getFecha().split("-");
-//        String tmp_fecha = "";
-//        if(arrayFecha.length > 1){
-//            tmp_fecha = arrayFecha[2]+"/"+arrayFecha[1]+"/"+arrayFecha[0];
-//        }
+
         tvNotiFecha.setText(notificacion.getFecha());
 
         return view;

@@ -58,7 +58,7 @@ public class notificaciones_activity extends AppCompatActivity {
             }
         });
 
-        llenarListaNotificaciones();
+        //llenarListaNotificaciones();
     }
     public void onResume(){
         super.onResume();

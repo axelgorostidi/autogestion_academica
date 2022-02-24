@@ -47,9 +47,13 @@
             android:id="@+id/etNuevoArchivoTitulo"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:background="@drawable/rectangulo_campo"
             android:ems="10"
             android:hint="Título"
-            android:inputType="textPersonName" />
+            android:inputType="textPersonName"
+            android:minHeight="40dp"
+            android:paddingHorizontal="5dp"
+            app:backgroundTint="@null" />
 
         <Space
             android:layout_width="match_parent"
@@ -66,8 +70,12 @@
             android:id="@+id/etNuevoArchivoDescripcion"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:background="@drawable/rectangulo_campo"
             android:ems="10"
-            android:hint="Descripción" />
+            android:hint="Descripción"
+            android:minHeight="40dp"
+            android:paddingHorizontal="5dp"
+            app:backgroundTint="@null" />
 
         <Space
             android:layout_width="match_parent"
@@ -84,9 +92,13 @@
             android:id="@+id/etNuevoArchivoLink"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:background="@drawable/rectangulo_campo"
             android:ems="10"
             android:hint="Link"
-            android:inputType="textUri" />
+            android:inputType="textUri"
+            android:minHeight="40dp"
+            android:paddingHorizontal="5dp"
+            app:backgroundTint="@null" />
 
         <Space
             android:layout_width="match_parent"

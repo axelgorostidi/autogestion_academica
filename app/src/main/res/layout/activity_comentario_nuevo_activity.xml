@@ -44,9 +44,12 @@
             android:textStyle="bold" />
 
         <Spinner
+            android:background="@drawable/rectangulo_campo"
+            app:backgroundTint="@null"
+            android:popupBackground="@drawable/popup_spinner"
             android:id="@+id/spinnerTipos"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="40dp" />
 
         <Space
             android:layout_width="match_parent"
@@ -63,9 +66,13 @@
             android:id="@+id/etComentarioCuerpo"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:background="@drawable/rectangulo_campo"
             android:ems="10"
             android:hint="Comentario"
-            android:inputType="textMultiLine" />
+            android:inputType="textMultiLine"
+            android:minHeight="40dp"
+            android:paddingHorizontal="5dp"
+            app:backgroundTint="@null" />
 
         <Space
             android:layout_width="match_parent"

@@ -41,15 +41,24 @@
         <EditText
             android:id="@+id/et_mail_ingresar"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="50dp"
+            app:backgroundTint="@null"
+            android:background="@drawable/rectangulo_campo"
+            android:paddingHorizontal="5dp"
             android:ems="10"
             android:hint="@string/mail"
-            android:inputType="textPersonName" />
+            android:inputType="textPersonName"/>
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="10dp" />
 
         <EditText
+            app:backgroundTint="@null"
+            android:background="@drawable/rectangulo_campo"
+            android:paddingHorizontal="5dp"
             android:id="@+id/et_pass_ingresar"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="50dp"
             android:ems="10"
             android:hint="@string/contrasena"
             android:inputType="textPassword" />

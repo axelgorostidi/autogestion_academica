@@ -65,10 +65,10 @@ public class Authentication_activity extends AppCompatActivity {
         et_mail_ingresar = findViewById(R.id.et_mail_ingresar);
         et_pass_ingresar = findViewById(R.id.et_pass_ingresar);
 
-        session();
+        sesion(); //si ya estas logueado ingresar automaticamente
     }
 
-    public void session(){
+    public void sesion(){
         SharedPreferences prefs = getSharedPreferences(getString(R.string.prefs_file), Context.MODE_PRIVATE);
 
         String email = prefs.getString("email", null);
@@ -81,16 +81,8 @@ public class Authentication_activity extends AppCompatActivity {
     }
 
     public void onClickRegistrarse(View v){
-
         Intent intent = new Intent(getApplicationContext(), registrarse_activity.class);
         startActivity(intent);
-
-//        if(et_mail_ingresar.getText().toString().isEmpty() || et_pass_ingresar.getText().toString().isEmpty()){
-//            Toast.makeText(this, getString(R.string.ingreseDatos), Toast.LENGTH_SHORT).show();
-//            return;
-//        }
-//        FirebaseAuth.getInstance().createUserWithEmailAndPassword(et_mail_ingresar.getText().toString(), et_pass_ingresar.getText().toString());
-//        inicioActivity(et_mail_ingresar.getText().toString(), ProviderType.valueOf("BASIC"));
     }
 
     public void onClickIngresar(View v){
@@ -152,7 +144,7 @@ public class Authentication_activity extends AppCompatActivity {
                         } catch (JSONException e) {}
                     }
                 });
-                    preCargarDatosCuenta(emailFace);
+                    preCargarDatosCuenta(emailFace, ProviderType.FACEBOOK.toString());
                     inicioActivity(emailFace, ProviderType.FACEBOOK);
             }
 
@@ -182,7 +174,7 @@ public class Authentication_activity extends AppCompatActivity {
                 if(account != null){
                     AuthCredential credential = GoogleAuthProvider.getCredential(account.getIdToken(), null);
                     FirebaseAuth.getInstance().signInWithCredential(credential);
-                    preCargarDatosCuenta(account.getEmail());
+                    preCargarDatosCuenta(account.getEmail(), ProviderType.GOOGLE.toString());
                     inicioActivity(account.getEmail(), ProviderType.GOOGLE);
                 }
             } catch (ApiException e) {}
@@ -196,7 +188,7 @@ public class Authentication_activity extends AppCompatActivity {
         startActivity(i);
     }
 
-    public void preCargarDatosCuenta(String email){
+    public void preCargarDatosCuenta(String email, String p_provider){
 
         db.collection("Users")
                 .document(email)
@@ -214,7 +206,7 @@ public class Authentication_activity extends AppCompatActivity {
                             data.put("born", "");
                             data.put("firstName", "");
                             data.put("lastName", "");
-                            data.put("provider", ProviderType.GOOGLE.toString());
+                            data.put("provider", p_provider);
 
                             DocumentReference newUserRef = db.collection("Users").document(email);
                             newUserRef

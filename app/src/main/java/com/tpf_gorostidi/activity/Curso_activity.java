@@ -127,18 +127,21 @@ public class Curso_activity extends AppCompatActivity {
 
         ((RatingBar) findViewById(R.id.estrellasPuntaje)).setOnRatingBarChangeListener(new RatingBar.OnRatingBarChangeListener() {
             @Override
-            public void onRatingChanged(RatingBar ratingBar, float v, boolean b) {
+            public void onRatingChanged(RatingBar ratingBar, float valor, boolean b) {
                 if(!ratingBarOnCreate) {
                     ratingBar.setIsIndicator(true);
                     db.collection("Users")
                             .document(email)
                             .collection("MyCourses")
                             .document(nombre)
-                            .update("score", v, "is_rated", true);
-
+                            .update("score", valor, "is_rated", true);
+                    Float tmp_sumar = valor / (nPuntajes + 1);
+                    if(valor < puntaje){
+                        tmp_sumar *= -1;
+                    }
                     db.collection("Courses")
                             .document(nombre)
-                            .update("score", (puntaje + v) / (nPuntajes + 1), "n_scores", nPuntajes + 1);
+                            .update("score", (puntaje + tmp_sumar), "n_scores", nPuntajes + 1);
 
                     db.collection("Courses")
                             .document(nombre)
@@ -209,7 +212,7 @@ public class Curso_activity extends AppCompatActivity {
                     });
             FirebaseMessaging.getInstance().unsubscribeFromTopic(nombreNormalizado);
         }
-
+        //finish();
     }
 
     private String normalizarNombreCurso(String nombre){

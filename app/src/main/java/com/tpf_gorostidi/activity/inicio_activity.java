@@ -52,7 +52,7 @@ public class inicio_activity extends AppCompatActivity {
         }
 
         FirebaseAuth.getInstance().signOut();
-        onBackPressed();
+        finish();
     }
 
     public void onClickMisCursos(View v){
@@ -81,6 +81,4 @@ public class inicio_activity extends AppCompatActivity {
         Intent intent = new Intent(v.getContext(), datos_activity.class);
         startActivity(intent);
     }
-
-
 }

@@ -8,9 +8,12 @@
     tools:context=".activity.registrarse_activity">
 
     <EditText
+        app:backgroundTint="@null"
+        android:background="@drawable/rectangulo_campo"
+        android:paddingHorizontal="5dp"
         android:id="@+id/etDatosFechaNac"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_height="35dp"
         android:layout_marginStart="10dp"
         android:layout_marginTop="5dp"
         android:layout_marginEnd="5dp"
@@ -22,9 +25,12 @@
         app:layout_constraintTop_toBottomOf="@+id/textView9" />
 
     <EditText
+        app:backgroundTint="@null"
+        android:background="@drawable/rectangulo_campo"
+        android:paddingHorizontal="5dp"
         android:id="@+id/etRegContrasena"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_height="35dp"
         android:layout_marginStart="10dp"
         android:layout_marginTop="5dp"
         android:layout_marginEnd="10dp"
@@ -36,9 +42,12 @@
         app:layout_constraintTop_toBottomOf="@+id/textView11" />
 
     <EditText
+        app:backgroundTint="@null"
+        android:background="@drawable/rectangulo_campo"
+        android:paddingHorizontal="5dp"
         android:id="@+id/etRegRepetirContrasena"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_height="35dp"
         android:layout_marginStart="10dp"
         android:layout_marginTop="5dp"
         android:layout_marginEnd="10dp"
@@ -50,9 +59,12 @@
         app:layout_constraintTop_toBottomOf="@+id/textView12" />
 
     <EditText
+        app:backgroundTint="@null"
+        android:background="@drawable/rectangulo_campo"
+        android:paddingHorizontal="5dp"
         android:id="@+id/etRegEmail"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_height="35dp"
         android:layout_marginStart="10dp"
         android:layout_marginTop="5dp"
         android:layout_marginEnd="10dp"
@@ -64,9 +76,12 @@
         app:layout_constraintTop_toBottomOf="@+id/textView7" />
 
     <EditText
+        app:backgroundTint="@null"
+        android:background="@drawable/rectangulo_campo"
+        android:paddingHorizontal="5dp"
         android:id="@+id/etDatosApellido"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_height="35dp"
         android:layout_marginStart="10dp"
         android:layout_marginTop="10dp"
         android:layout_marginEnd="10dp"
@@ -144,9 +159,12 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
+        app:backgroundTint="@null"
+        android:background="@drawable/rectangulo_campo"
+        android:paddingHorizontal="5dp"
         android:id="@+id/etDatosNombre"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_height="35dp"
         android:layout_marginStart="10dp"
         android:layout_marginTop="5dp"
         android:layout_marginEnd="10dp"

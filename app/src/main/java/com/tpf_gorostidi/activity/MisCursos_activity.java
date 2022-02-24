@@ -60,7 +60,7 @@ public class MisCursos_activity extends AppCompatActivity {
 
                             Curso_adapter adapter = new Curso_adapter(getApplication(), cursos, suscriptos);
 
-                            ListView listView = (ListView)findViewById(R.id.lvlArchivos);
+                            ListView listView = findViewById(R.id.lvlArchivos);
 
                             listView.setAdapter(adapter);
 

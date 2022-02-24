@@ -85,18 +85,6 @@ public class TodosCursos_activity extends AppCompatActivity {
                                 }else{
                                     suscriptos.add(1);
                                 }
-
-                               /* if(cursosSuscripto.indexOf(document.getId())==-1) {
-                                    String nombre = document.getId();
-                                    String facultad = document.get("faculty").toString();
-                                    double puntaje = document.getDouble("score");
-                                    int nPuntajes = document.getLong("n_scores").intValue();
-                                    cursos.add(new Curso(nombre, facultad, puntaje, nPuntajes));
-                                    suscriptos.add(0);
-                                }else{
-                                    suscriptos.add(1);
-                                }*/
-
                             }
                         }
 
