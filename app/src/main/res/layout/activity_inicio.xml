@@ -129,6 +129,17 @@
             app:backgroundTint="@null" />
 
 
+        <Button
+            android:id="@+id/btnSiuGuarani"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="15dp"
+            android:layout_marginVertical="5dp"
+            android:background="@drawable/presionarboton1"
+            android:onClick="onClickSiuGuarani"
+            android:text="@string/siuguarani"
+            app:backgroundTint="@null" />
+
         <Space
             android:layout_width="match_parent"
             android:layout_height="47dp" />

@@ -77,6 +77,10 @@ public class inicio_activity extends AppCompatActivity {
         mapIntent.setPackage("com.google.android.apps.maps");
         startActivity(mapIntent);
     }
+    public void onClickSiuGuarani(View v){
+        Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://servicios.unl.edu.ar/guarani3/autogestion/"));
+        startActivity(browserIntent);
+    }
     public void onClickMisDatos(View v){
         Intent intent = new Intent(v.getContext(), datos_activity.class);
         startActivity(intent);
